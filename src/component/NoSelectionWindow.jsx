@@ -1,5 +1,5 @@
 import image from "../assets/no-projects.png"
-import BrounButton from "./buttons/brounButton"
+import BrounButton from "./buttons/BrounButton"
 
 export default function NoSelectionWindow({onAdding}) {
   const sharedStyles = "mt-5 font-bold"

@@ -19,7 +19,7 @@ export default function SideBar({onAdding,projects,activeProject, setters}) {
           + Add Project
         </button>
       </p>
-      <ul className="flex flex-col">
+      <ul className="flex flex-col gap-1">
         {
           projects.map((p, pi) => (
             <ProjectItem 
