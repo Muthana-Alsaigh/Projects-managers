@@ -1,7 +1,7 @@
 import { useRef } from "react"
 import BrounButton from "../buttons/brounButton"
 import WhiteButton from "../buttons/WhiteButton"
-import Label from "./Label"
+import Input from "./Input"
 
 export default function AddingWindow({projects, setters}) {
   const [setActiveProject, setIsAdding] = setters
@@ -27,13 +27,13 @@ export default function AddingWindow({projects, setters}) {
 
   return (
     <div className="w-full h-full pt-20 pl-10 pr-20">
-      <p className="flex justify-end">
-        <WhiteButton onClick={handleCansel} hoverColor="hover:text-stone-500">Cansel</WhiteButton>  
+      <menu className="flex justify-end">
+        <WhiteButton onClick={handleCansel} hoverColor="hover:text-stone-950">Cansel</WhiteButton>  
         <BrounButton onClick={handleSave} textColor="text-stone-50 font-normal">Save</BrounButton>
-      </p>
-      <Label ref={title} inputType="input" type="text">title</Label>
-      <Label ref={description} inputType="textarea">description</Label>
-      <Label ref={date} inputType="input" type="date">due date</Label>
+      </menu>
+      <Input ref={title} inputType="input" type="text">title</Input>
+      <Input ref={description} inputType="textarea">description</Input>
+      <Input ref={date} inputType="input" type="date">due date</Input>
     </div>
   )
-}
+} 
