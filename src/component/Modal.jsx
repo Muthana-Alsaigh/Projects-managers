@@ -14,10 +14,10 @@ export default function Modal({children, ref, btnCaption}) {
   })
 
   return createPortal(
-    <dialog ref={dialog}>
+    <dialog ref={dialog} className="backdrop:bg-stone-900/90 p-4 rounded-md">
       {children}
-      <form method="dialog">
-        <BrounButton>{btnCaption}</BrounButton>
+      <form method="dialog" className="mt-4 text-right">
+        <BrounButton textColor="text-stone-50">{btnCaption}</BrounButton>
       </form>
     </dialog>, 
     document.querySelector("#modal-root")

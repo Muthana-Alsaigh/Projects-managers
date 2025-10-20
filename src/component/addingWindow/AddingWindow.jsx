@@ -17,12 +17,13 @@ export default function AddingWindow({projects, setters}) {
     const newDescription = description.current.pollText()
     const newDate = date.current.pollText()
 
-    setIsAdding(false);
-
+    
     if (newTitle.trim() === '' || newDescription.trim() === '' || newDate.trim() === '') {
       modal.current.open()
       return
     }
+
+    setIsAdding(false);
 
     projects.push({
       title: newTitle,
@@ -40,9 +41,9 @@ export default function AddingWindow({projects, setters}) {
   return (
     <>
       <Modal ref={modal} btnCaption="Okay">
-        <h2>Invalid Input</h2>
-        <p>Oops ... looks like you forget to enter a value</p>
-        <p>Pleas make sure you provide a valid value for every input filed.</p>
+        <h2 className="mt-5 font-bold text-stone-800 text-2xl">Invalid Input</h2>
+        <h3 className="mt-5 font-bold text-stone-600 text-lg">Oops ... looks like you forget to enter a value</h3>
+        <h3 className="mt-5 font-bold text-stone-600 text-lg">Pleas make sure you provide a valid value for every input filed.</h3>
       </Modal>
       <div className="w-full h-full pt-20 pl-10 pr-20">
         <menu className="flex justify-end">
