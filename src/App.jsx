@@ -4,7 +4,7 @@ import { useState } from "react";
 import AddingWindow from "./component/addingWindow/AddingWindow";
 import ProjectPage from "./component/projectPage/ProjectPage";
 
-let projects = []
+let projects = JSON.parse(localStorage.getItem("projects")) || []
 
 function App() {
   // Making the projects list
@@ -23,6 +23,7 @@ function App() {
     setActiveProject(undefined)
     setIsAdding(false)
     projects = projects.filter((p,i) => i !== index)
+    localStorage.setItem("projects", JSON.stringify(projects))
   }
 
   return (
@@ -34,6 +35,7 @@ function App() {
       {(activeProject >= 0) && 
       <ProjectPage 
         project={projects[activeProject]}
+        projects={projects}
         projectIndex={activeProject}
         onDelete={handleProjectDelete}/>}
 

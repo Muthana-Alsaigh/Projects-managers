@@ -3,7 +3,7 @@ import TaskItem from "./TaskItem"
 import TaskInput  from "./TaskInput"
 import WhiteButton from "../buttons/WhiteButton"
 
-export default function ProjectPage({project, projectIndex, onDelete}) {
+export default function ProjectPage({project, projects, projectIndex, onDelete}) {
   const date = new Date(project.date).toLocaleDateString('en-US', {
     year: "numeric",
     month: "short",
@@ -17,11 +17,14 @@ export default function ProjectPage({project, projectIndex, onDelete}) {
       project.tasks = [ref.current.value, ...project.tasks]
       ref.current.value = ''
       setflip(f => !f)
+
+      localStorage.setItem("projects", JSON.stringify(projects))
     }
   }
 
   function onItemClear(key) {
     project.tasks = project.tasks.filter((v,i) => i !== key)
+    localStorage.setItem("projects", JSON.stringify(projects))
     setflip(f => !f)
   }
 

@@ -31,7 +31,11 @@ export default function AddingWindow({projects, setters}) {
       date: newDate,
       tasks:[]
     })
+    
+    localStorage.setItem("projects", JSON.stringify(projects))
+
     setActiveProject(projects.length - 1)
+    
   }
 
   function handleCansel() {
